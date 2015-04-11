@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Ferreteria el Constructor</title>
+	<title>Academia Isaac Newton</title>
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="shortcut icon" type="imagen/x-icon" href="recursos/toolsbox-128.ico"/>
 	<link rel="stylesheet" href="css/estilos.css">
@@ -19,7 +19,7 @@
 	<header>
 		<div class="cabecera">
 			<img  class="animated bounceInDown" src="recursos/logo1.png" width="90" height="80">
-			<font class="animated bounceInDown" face="Action Jackson" size="20" color="#FFFFFF">FERRETERIA EL CONSTRUCTOR</font>
+			<font class="animated bounceInDown" face="Action Jackson" size="20" color="#FFFFFF">ACADEMIA ISAAC NEWTON</font>
       		<img class="animated bounceInDown" src="recursos/logo2.png" width="80" height="70">
 		</div>
 
