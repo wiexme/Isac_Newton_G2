@@ -46,7 +46,7 @@
   </div>
  </form>
  </section>
- <!--<section>  
+ <section>  
     <form class="form-horizontal" action="alertas.jsp">
     <div class="logeo">¿ERES NUEVO EN EL SISTEMA? REGÍSTRATE</div>
     <div class="form-group">
@@ -73,7 +73,7 @@
     </div>
   </div>
  </form>
- </section>-->
+ </section>
   <script src="jquery/jquery-1.11.2.min.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
 </body>
