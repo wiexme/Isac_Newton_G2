@@ -27,7 +27,7 @@ footer{
 }
 .slide, .item{
 	width: 500px;
-	height: 380px;
+	height: 285px;
 	margin: 1px auto;
 }
 .item{
@@ -44,3 +44,16 @@ footer{
 	text-align: center;
 	font-weight: bold;
 }
+.tabla{
+    margin-left: 400px;
+    margin-right: 400px;
+    color: #FFFFFF;
+}
+.alert{
+    border-radius: 10px;
+    margin: 10px;
+}
+.form-horizontal{
+    color: #FFFFFF;
+}
+
