@@ -44,11 +44,6 @@ footer{
 	text-align: center;
 	font-weight: bold;
 }
-.tabla{
-    margin-left: 400px;
-    margin-right: 400px;
-    color: #FFFFFF;
-}
 .alert{
     border-radius: 10px;
     margin: 10px;
@@ -56,4 +51,20 @@ footer{
 .form-horizontal{
     color: #FFFFFF;
 }
-
+.tabla{
+    margin-left: 300px;
+    margin-right: 300px;
+    color: #FFFFFF;
+}
+.tabla2{
+    margin-left: 200px;
+    margin-right: 200px;
+    color: #FFFFFF;
+    background: #333;
+}
+.tabla3{
+    margin-left: 300px;
+    margin-right: 300px;
+    color: #FFFFFF;
+    background: #333;
+}

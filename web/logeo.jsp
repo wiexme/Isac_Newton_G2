@@ -11,7 +11,7 @@
 <style type="text/css">
 	<!--
 	body {
-	background: url(recursos/fondo.jpg) center fixed no-repeat
+	background: url(recursos/fondo.jpg)
 	}-->
 	</style>
 <body>
