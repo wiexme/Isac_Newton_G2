@@ -14,24 +14,24 @@
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Fernandez Lopez</td>
+          <td>Willy Joel</td>
+          <td>Vela Arteaga</td>
           <td>A-1</td>
           <td><a><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <tr>
           <th scope="row">2</th>
-          <td>Mirian del Pilar</td>
-          <td>Cardenas Solsol</td>
+          <td>Geseñi</td>
+          <td>Trigozo Galop</td>
           <td>A-1</td>
           <td><a><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td>Larry</td>
-          <td>Bardales Julca</td>
+          <td>Eduardo</td>
+          <td>Bocanegra Valera</td>
           <td>A-1</td>
           <td><a><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a><span class="glyphicon glyphicon-remove"></span></a></td>

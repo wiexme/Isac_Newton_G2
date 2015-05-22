@@ -18,8 +18,8 @@
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Fernandez Lopez</td>
+          <td>Willy Joel</td>
+          <td>Vela Arteaga</td>
           <td>Maculino</td>
           <td>Jr. Los Martirez  N° 200</td>
           <td>77832323</td>
@@ -30,8 +30,8 @@
         </tr>
         <tr>
           <th scope="row">2</th>
-          <td>Mirian del Pilar</td>
-          <td>Cardenas Solsol</td>
+          <td>Geseñi</td>
+          <td>Trigozo Galop</td>
           <td>Femenino</td>
           <td>Av. Lima N° 234</td>
           <td>67546373</td>
@@ -42,8 +42,8 @@
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td>Larry</td>
-          <td>Bardales Julca</td>
+          <td>Eduardo</td>
+          <td>Bocanegra Valera</td>
           <td>Masculino</td>
           <td>Jr. Loreto N° 763</td>
           <td>76453427</td>

@@ -1,4 +1,8 @@
 <%@include file="WEB-INF/jspf/top.jspf"%>
+<div class="container-fluid">
+    <div class="row">
+        <label class="col-lg-3"></label>
+        <div class="col-xs-12 col-sm-6 col-md-6">
 <div class="tabla">
 <table class="table table-condensed">
 <tbody>   
@@ -46,5 +50,8 @@
   </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
 </div>
 <%@include file="WEB-INF/jspf/bottom.jspf"%>

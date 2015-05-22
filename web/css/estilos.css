@@ -1,70 +1,54 @@
 .cabecera{
-	background: #0431B4;
-	margin: 10px;
+	background: #2D448E;
+/*	margin: 1px;
 	height: 100px;
 	border-radius: 10px;
 	text-align: center;
 	padding: 15px;
-	margin-left: 200px;
-	margin-right: 200px;
+	margin-left: 0px;*/
+	margin-right: 1px;
 }
 .menu{
-	margin-left: 200px;
-	margin-top: -10px;
-	margin-right: 200px;
+/*	margin-left: 200px;
+	margin-top: -10px;*/
+	margin-right: 1px;
 }
 footer{
-    background:blue;
-	border-radius: 10px;
-	margin-left: 200px;
-	margin-right: 200px;
+        background:#2D448E;
+/*	border-radius: 10px;
+	margin-left: 200px;*/
+	margin-right: 1px;
 }
 .cabecera2{
  	text-align: center;
  	margin-top: 10px;
- 	color: #FFFFFF;
  	height: 100px;
 }
-.slide, .item{
-	width: 500px;
-	height: 285px;
-	margin: 1px auto;
-}
-.item{
-	width: 500px;
-	height: 320px;
-}
-.slide{
-	margin-top: -50px;
-	margin-right: 430px;
-}
+
 .logeo{
-	height: 110px;
-	padding: 50px;
+/*	height: 110px;*/
+	padding: 30px;
 	text-align: center;
-	font-weight: bold;
+        font-weight: bold;
 }
 .alert{
     border-radius: 10px;
     margin: 10px;
 }
-.form-horizontal{
+/*.form-horizontal{
     color: #FFFFFF;
-}
-.tabla{
+}*/
+/*.tabla{
     margin-left: 300px;
     margin-right: 300px;
-    color: #FFFFFF;
-}
+    
+}*/
 .tabla2{
     margin-left: 200px;
     margin-right: 200px;
-    color: #FFFFFF;
-    background: #333;
 }
 .tabla3{
     margin-left: 300px;
     margin-right: 300px;
-    color: #FFFFFF;
-    background: #333;
 }
+
