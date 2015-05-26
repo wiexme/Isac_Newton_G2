@@ -16,13 +16,13 @@
 </style>
 <body>
     <div class="cabecera">
-    <div class="container-fluid" action="inicio.jsp">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <font class="" face="Arial Black" size="10" color="#FFFFFF">Academia Isaac Newton</font>
             </div>
             <div class="col-xs-6 col-md-6">
-             <form class="form-inline">
+            <form class="form-inline" action="inicio.jsp">
               <div class="form-group">
                 <label></label><br>
                 <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Usuario">
@@ -137,9 +137,9 @@
                   </div>
                 </form>
             </div>
-        </div>
-        
+        </div>   
     </div>
+    
   <script src="jquery/jquery-1.11.2.min.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
 </body>

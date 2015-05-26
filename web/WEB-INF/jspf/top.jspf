@@ -52,7 +52,7 @@
         <ul class="dropdown-menu" role="menu">
         <li><a href="reg_alumno.jsp">Registro Alumno</a></li>
         <li><a href="asist_alumno.jsp">Asistencia Alumno</a></li>
-        <li><a href="#">Pagos</a></li>
+        <li><a href="inscripcionalumno.jsp">Inscribir Alumno</a></li>
         </ul>
         </li>
         <li class="dropdown">
