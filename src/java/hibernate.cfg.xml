@@ -7,10 +7,10 @@
     <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:orcl</property>
     <property name="hibernate.connection.username">academia</property>
     <property name="hibernate.connection.password">academia</property>
-    <mapping resource="pro/modelo/pojos/Curso.hbm.xml"/>
-    <mapping resource="pro/modelo/pojos/Campana.hbm.xml"/>
-    <mapping resource="pro/modelo/pojos/Turno.hbm.xml"/>
     <mapping resource="pro/modelo/pojos/TipoDocumento.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Turno.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Campana.hbm.xml"/>
     <mapping resource="pro/modelo/pojos/Aula.hbm.xml"/>
+    <mapping resource="pro/modelo/pojos/Curso.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

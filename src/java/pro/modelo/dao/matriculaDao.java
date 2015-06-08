@@ -7,12 +7,14 @@ package pro.modelo.dao;
 
 import java.util.List;
 import pro.modelo.entidad.Alumno;
+import pro.modelo.entidad.Campana;
+import pro.modelo.entidad.TipoDocumento;
 
 /**
  *
  * @author WIEXME
  */
-public interface alumnoDao {
-    public boolean inscribirAlumno(String id_persona, String codigo);
-//    public List<Alumno> lista(String idevento);
+public interface matriculaDao {
+    public List<Campana> listarCampana();
+    public boolean inscribirMatricula (String id_alumno, String id_campana, String cod_matricula, String id_usuario);
 }

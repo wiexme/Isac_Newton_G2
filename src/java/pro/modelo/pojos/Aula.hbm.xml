@@ -1,21 +1,20 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/05/2015 11:18:59 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 12:41:41 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pro.modelo.entidad.Aula" table="AULA" schema="ACADEMIA" optimistic-lock="version">
-        <id name="idAula" type="string">
-            <column name="ID_AULA" length="50" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="NOMBRE" length="60" not-null="true" />
-        </property>
-        <property name="descripcion" type="string">
-            <column name="DESCRIPCION" length="100" />
-        </property>
-        <property name="estado" type="string">
-            <column name="ESTADO" length="30" not-null="true" />
-        </property>
-    </class>
+  <class name="pro.modelo.entidad.Aula" optimistic-lock="version" schema="ACADEMIA" table="AULA">
+    <id name="idAula" type="string">
+      <column length="50" name="ID_AULA"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="60" name="NOMBRE" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="100" name="DESCRIPCION"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="30" name="ESTADO"/>
+    </property>
+  </class>
 </hibernate-mapping>

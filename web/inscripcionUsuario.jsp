@@ -1,63 +1,59 @@
-<%@page import="pro.modelo.entidad.Alumno"%>
-<%@page import="pro.modelo.dao.impl.alumnoDaoImpl"%>
-<%@page import="pro.modelo.dao.alumnoDao"%>
+<%@page import="pro.modelo.dao.impl.usuarioDaoImpl"%>
+<%@page import="pro.modelo.dao.usuarioDao"%>
 <%@page import="pro.modelo.entidad.Persona"%>
-<%@page import="pro.modelo.dao.personaDao"%>
 <%@page import="pro.modelo.dao.impl.personaDaoImpl"%>
-<%@page import="pro.modelo.entidad.TipoDocumento"%>
+<%@page import="pro.modelo.dao.personaDao"%>
 <%@include file="WEB-INF/jspf/top.jspf"%>
-<%
+<%  
     personaDao daop = new personaDaoImpl();
-    alumnoDao daoa = new alumnoDaoImpl();
+    usuarioDao daou = new usuarioDaoImpl();
     Persona persona = new Persona();
-    Alumno alumno = new Alumno();
-
-    
-    String buscarAlumno = request.getParameter("buscarAlumno"); buscarAlumno=buscarAlumno==null?"":buscarAlumno;
     String idPersona = request.getParameter("idPersona"); idPersona=idPersona==null?"":idPersona;
     String nombre = request.getParameter("nombre"); nombre=nombre==null?"":nombre;
     String apellidoPat = request.getParameter("apellidoPat"); apellidoPat=apellidoPat==null?"":apellidoPat;
     String apellidoMat = request.getParameter("apellidoMat"); apellidoMat=apellidoMat==null?"":apellidoMat;
     String genero = request.getParameter("genero"); genero=genero==null?"":genero;
-    String codigoAlumno = request.getParameter("codigoAlumno"); codigoAlumno=codigoAlumno==null?"":codigoAlumno;
+    String login = request.getParameter("login"); login=login==null?"":login;
+    String password = request.getParameter("password"); password=password==null?"":password;
+    String buscarUusuario = request.getParameter("buscarUusuario"); buscarUusuario=buscarUusuario==null?"":buscarUusuario;
     String opcion = request.getParameter("opcion"); opcion=opcion==null?"":opcion;
     String mensaje = "";
-     if(!buscarAlumno.equals("")){
-                persona = daop.buscarPersona(buscarAlumno);
+ 
+    if(!buscarUusuario.equals("")){
+                persona = daop.buscarPersona(buscarUusuario);
                 if(persona !=null){
                     idPersona = persona.getIdPersona();
                     nombre = persona.getNombre();
                     apellidoPat = persona.getApellidoPat();
                     apellidoMat = persona.getApellidoMat();
                     genero = persona.getGenero();
-                }else{
+                }else{   
                 }
-     }   
-    if(opcion.equals("Registrar")){
-        if(!codigoAlumno.equals("")){
+     }
+    
+    if(opcion.equals("inscribir")){    
+      if(!login.equals("") && !password.equals("")){
           //alumno.setCodigoAlumno(codigoAlumno);
-          if(daoa.inscribirAlumno(idPersona, codigoAlumno)){
-              response.sendRedirect("matricula.jsp?buscarMatricula="+buscarAlumno+"&idPersona="+idPersona);
+          if(daou.inscribirUsuario(idPersona, login, password)){
+              response.sendRedirect("inicio.jsp");
           }else{
                mensaje = "No se pudo registrar";
           }
         } 
-    }          
-                
-    
+    }
 %>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3"></div>
-        <div class="col-xs-12 col-sm-6 col-md-6 well">
-            <h1 class="text-center"><label>INSCRIBIR ALUMNO</label></h1>
-            <form action="inscripcionalumno.jsp">
-                <input type="hidden" name="idPersona" value="<%=idPersona%>" size="10">
-                <input type="hidden" name="buscarAlumno" value="<%=buscarAlumno%>" size="10">
-                <input type="hidden" name="opcion" value="Registrar" size="10">
-                <table class="table table-condensed">
-                    <tbody>
-                        <tr>
+         <div class="col-xs-12 col-sm-3 col-md-3"></div>
+         <div class="col-xs-12 col-sm-6 col-md-6 well">
+             <h1 class="text-center"><strong>INSCRIBIR USUARIO</strong></h1>
+             <form action="inscripcionUsuario.jsp">
+                 <input type="hidden" name="idPersona" value="<%=idPersona%>" size="10">
+                 <input type="hidden" name="buscarUusuario" value="<%=buscarUusuario%>" size="10">
+                 <input type="hidden" name="opcion" value="inscribir" size="10">
+                 <table class="table table-condensed">
+                     <tbody>
+                         <tr>
                             <td><lebel class="col-sm-12 control-label"><strong>Nombres</strong></lebel></td>
                             <td><div class="col-sm-15"><input type="text" name="nombre" class="form-control" placeholder="Nombres" readonly="true" value="<%=nombre%>"></div></td>
                             <td></td>
@@ -84,10 +80,14 @@
                             </td>
                             <td></td>
                         </tr>
-                        
                         <tr>
-                            <td><lebel class="col-sm-12 control-label"><strong>Codigo Alumno</strong></lebel></td>
-                            <td><div class="col-sm-15"><input type="text" name="codigoAlumno" class="form-control" placeholder="Codigo Alumno" value=""></div></td>
+                            <td><lebel class="col-sm-12 control-label"><strong>Usuario</strong></lebel></td>
+                            <td><div class="col-sm-15"><input type="text" name="login" class="form-control" placeholder="Usuario" value="<%=login%>"></div></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td><lebel class="col-sm-12 control-label"><strong>Contraseña</strong></lebel></td>
+                            <td><div class="col-sm-15"><input type="password" name="password" class="form-control" placeholder="Contraseña" value="<%=buscarUusuario%>"></div></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -100,11 +100,12 @@
                         <td colspan="3" class="alert alert-danger" align="center"><%=mensaje%></td>
                         </tr>
                         <%}%>
-                    </tbody>  
-                </table>
-            </form>
-        </div>
-        <div class="col-xs-12 col-sm-3 col-md-3"></div>  
+                     </tbody>
+                 </table>
+             </form>
+         </div>
+         <div class="col-xs-12 col-sm-3 col-md-3"></div>
     </div>
+    
 </div>
 <%@include file="WEB-INF/jspf/bottom.jspf"%>

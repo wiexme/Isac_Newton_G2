@@ -23,7 +23,7 @@ public class Alumno {
     public void setIdAlumno(String idAlumno) {
         this.idAlumno = idAlumno;
     }
-
+     
     public String getCodigoAlumno() {
         return codigoAlumno;
     }
@@ -31,6 +31,7 @@ public class Alumno {
     public void setCodigoAlumno(String codigoAlumno) {
         this.codigoAlumno = codigoAlumno;
     }
+
     
     
 }

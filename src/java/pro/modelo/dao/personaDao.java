@@ -16,7 +16,7 @@ import pro.modelo.entidad.Ubigeo;
  */
 public interface personaDao {
     public List<TipoDocumento> listarTipoDocumento();
-    public Persona buscarAlumno(String numdoc);
+    public Persona buscarPersona(String numdoc);
     public boolean registrarPersona(Persona persona);
     public List<Ubigeo> listarUbigeo();
 }

@@ -21,8 +21,10 @@
  String estadoCivil = request.getParameter("estadoCivil"); estadoCivil=estadoCivil==null?"":estadoCivil;
  String religion = request.getParameter("religion"); religion=religion==null?"":religion;
  String idUbigeo = request.getParameter("idUbigeo"); idUbigeo=idUbigeo==null?"":idUbigeo;
+ String opcion = request.getParameter("opcion"); opcion=opcion==null?"Guardar":opcion;
  String mensaje = "";
  
+ if(opcion.equals("Guardar")){
  if(!nombre.equals("") && !apellidoPat.equals("") && !apellidoMat.equals("") && !genero.equals("")){
      per.setNombre(nombre);
      per.setApellidoPat(apellidoPat);
@@ -37,29 +39,49 @@
      per.setEstadoCivil(estadoCivil);
      per.setReligion(religion);
      per.setIdUbigeo(idUbigeo);
-     
-     if(dao.registrarPersona(per)){
-         response.sendRedirect("inscripcionalumno.jsp?buscarAlumno="+numDocumento);
-     }else{
-     mensaje = "No se pudo registrar";
+     opcion = "tipo";
      }
-
+ else{
+ 
+ }
  }
  
- 
- 
+ if(opcion.equals("tipo")){
+    if(dao.registrarPersona(per)){
+           //response.sendRedirect("inscripcionalumno.jsp?buscarAlumno="+numDocumento+"&idPersona="+idPersona);
+            //response.sendRedirect("inscripcionUsuario.jsp?buscarUusuario="+numDocumento);
+            //response.sendRedirect("inscripcionDocente.jsp?buscarDocente="+numDocumento);
+        }else{
+        mensaje = "No se pudo registrar";
+        }
+  }
 %>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3"></div>
         <div class="col-xs-12 col-sm-6 col-md-6 well">
+            <%if(opcion.equals("tipo")){%>           
+            <h1 class="text-center"><strong>SELECCIONAR TIPO DE REGISTRO</strong></h1>
+            <form action="reg_persona.jsp">
+                <input type="hidden" name="opcion" value="tipo" size="10">
+                <table align="center">
+                    <tr>
+                        <td><div class="col-sm-12"><a class="btn btn-success" role="button" href="inscripcionalumno.jsp?buscarAlumno=<%=numDocumento%>&idPersona=<%=idPersona%>">Alumno</a></div></td>
+                        <td><div class="col-sm-12"><a class="btn btn-success" role="button" href="inscripcionUsuario.jsp?buscarUusuario=<%=numDocumento%>">Usuario</a></div></td>
+                        <td><div class="col-sm-12"><a class="btn btn-success" role="button" href="inscripcionDocente.jsp?buscarDocente=<%=numDocumento%>">Docente</a></div></td>
+                    </tr> 
+                </table>
+            </form>
+            
+            <%}%>
+<%if(opcion.equals("Guardar")){%>            
 <h1 class="text-center"><strong>REGISTRAR</strong></h1>
-<form action="reg_persona.jsp">         
+<form action="reg_persona.jsp"> 
 <table class="table table-condensed">
 <tbody>   
   <tr>
     <td><label class="col-sm-12 control-label">Nombres</label></td>
-    <td><div class="col-sm-15"><input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<%=nombre%>"></div></td>
+    <td><div class="col-sm-15"><input type="text" name="nombre" class="form-control" placeholder="Nombres" value="<%=nombre%>" autofocus></div></td>
   </tr>
   <tr>
     <td><label class="col-sm-12 control-label">Apellido Paterno</label></td>
@@ -94,7 +116,7 @@
     <%}%>
     </select>
     </td>
-    <td></td>
+
   </tr>
   <tr>
     <td><label class="col-sm-12 control-label">Número de Documento</label></td>
@@ -138,7 +160,7 @@
     </select></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><input type="submit" name="Submit" class="btn btn-primary" value="Guardar"></td>
+      <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="opcion" value="<%=opcion%>"></td>
   </tr>
   <%
         if(!mensaje.equals("")){
@@ -149,7 +171,8 @@
   <%}%>
 </tbody>
 </table>
-</form>   
+</form> 
+<%}%>
 </div>
 <div class="col-xs-12 col-sm-3 col-md-3"></div>
 </div>

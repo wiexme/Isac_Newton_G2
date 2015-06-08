@@ -1,5 +1,5 @@
 package pro.modelo.entidad;
-// Generated 24/05/2015 11:18:57 AM by Hibernate Tools 4.3.1
+// Generated 07/06/2015 12:41:39 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,6 +12,7 @@ public class Campana  implements java.io.Serializable {
 
      private String idCampana;
      private String nombre;
+     private String semestre;
      private Date fechaInicio;
      private Date fechaFin;
      private String estado;
@@ -20,14 +21,14 @@ public class Campana  implements java.io.Serializable {
     }
 
 	
-    public Campana(String idCampana, String nombre, String estado) {
+    public Campana(String idCampana, String nombre) {
         this.idCampana = idCampana;
         this.nombre = nombre;
-        this.estado = estado;
     }
-    public Campana(String idCampana, String nombre, Date fechaInicio, Date fechaFin, String estado) {
+    public Campana(String idCampana, String nombre, String semestre, Date fechaInicio, Date fechaFin, String estado) {
        this.idCampana = idCampana;
        this.nombre = nombre;
+       this.semestre = semestre;
        this.fechaInicio = fechaInicio;
        this.fechaFin = fechaFin;
        this.estado = estado;
@@ -46,6 +47,13 @@ public class Campana  implements java.io.Serializable {
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public String getSemestre() {
+        return this.semestre;
+    }
+    
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
     }
     public Date getFechaInicio() {
         return this.fechaInicio;

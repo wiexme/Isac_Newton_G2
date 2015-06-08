@@ -51,7 +51,7 @@ public class personaDaoImpl implements personaDao{
 
 
     @Override
-    public Persona buscarAlumno(String numdoc) {
+    public Persona buscarPersona(String numdoc) {
        Statement st = null;
        ResultSet rs = null;
        String query = "SELECT * FROM persona WHERE num_documento = '"+numdoc+"'";

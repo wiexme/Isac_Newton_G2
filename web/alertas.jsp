@@ -9,11 +9,9 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link href="css/estilos.css" rel="stylesheet"> 
 <body>
-    <a href="logeo.jsp" class="btn btn-link btn-lg active" role="button">
-        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-    </a>
     <div class="alert alert-info" role="alert">
-    <a href="#" class="alert-link">Su registro fue exitoso...</a>
+        <a href="#" class="alert-link"><h1>Error...</h1></a>
+        <meta http-equiv="Refresh" content="3;url=<%=request.getContextPath()%>">
     </div>
     
   <script src="jquery/jquery-1.11.2.min.js"></script>

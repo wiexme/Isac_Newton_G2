@@ -5,14 +5,10 @@
  */
 package pro.modelo.dao;
 
-import java.util.List;
-import pro.modelo.entidad.Alumno;
-
 /**
  *
  * @author WIEXME
  */
-public interface alumnoDao {
-    public boolean inscribirAlumno(String id_persona, String codigo);
-//    public List<Alumno> lista(String idevento);
+public interface docenteDao {
+     public boolean inscribirDocente(String id_persona, String id_usuario, String ocupacion);
 }

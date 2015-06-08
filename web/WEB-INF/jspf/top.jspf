@@ -15,7 +15,14 @@
 	background: #E6E6E6
 	}-->
 	</style>
+        <jsp:useBean id="idUsuario" scope="session" class="java.lang.String" />
+         <%
+        if(idUsuario.equals("")){
+            response.sendRedirect("alertas.jsp");
+        }
+         %>
 <body>
+    
     <header>
             <div class="cabecera">
                 <div class="container-fluid">
@@ -44,15 +51,14 @@
      	<ul class="nav navbar-nav">
         <li class="active">
         <a href="inicio.jsp">
-        <span class="glyphicon glyphicon-home"></span>Inicio</a>
+        <span class="glyphicon glyphicon-home"></span> Inicio</a>
         </li>
         <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Registro
         <span class="caret"></span></a>
         <ul class="dropdown-menu" role="menu">
-        <li><a href="reg_alumno.jsp">Registro Alumno</a></li>
-        <li><a href="asist_alumno.jsp">Asistencia Alumno</a></li>
-        <li><a href="inscripcionalumno.jsp">Inscribir Alumno</a></li>
+        <li><a href="reg_persona.jsp">Registrar</a></li>
+        <li><a href="cargaCurso.jsp">Carga Curso</a></li>
         </ul>
         </li>
         <li class="dropdown">
@@ -60,11 +66,12 @@
          <span class="caret"></span></a>
          <ul class="dropdown-menu" role="menu">
                 <li><a href="informe_alumno.jsp">Reporte Alumno</a></li>
+                <li><a href="lista_tipoDocumento.jsp">Lista Tipo Documento</a></li>
            	<li><a href="#">Asistencias</a></li>
                 <li><a href="#">Informe de Pagos</a></li>
           </ul>
         </li>
-        <li><a href="logeo.jsp">
+        <li><a href="cerrarUsuario">
         <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir</a>
         </li>
         </ul>

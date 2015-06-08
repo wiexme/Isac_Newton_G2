@@ -12,7 +12,7 @@
           <th>D.N.I</th>
           <th>Aula</th>
           <th>Fecha_Inicio</th>
-          <th colspan="2">Acciones</th>
+          <th colspan="3">Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +26,7 @@
           <td>A-1</td>
           <td>12/04/2015</td>
           <td><a><span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td><a><span class="glyphicon glyphicon-refresh"></span></a></td>
           <td><a><span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         <tr>

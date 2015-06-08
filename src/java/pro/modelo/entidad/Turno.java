@@ -1,5 +1,5 @@
 package pro.modelo.entidad;
-// Generated 24/05/2015 11:18:57 AM by Hibernate Tools 4.3.1
+// Generated 07/06/2015 12:41:39 AM by Hibernate Tools 4.3.1
 
 
 
@@ -11,26 +11,19 @@ public class Turno  implements java.io.Serializable {
 
      private String idTurno;
      private String nombre;
-     private String horaInicio;
-     private String horaFin;
-     private String diaSemana;
      private String estado;
 
     public Turno() {
     }
 
 	
-    public Turno(String idTurno, String nombre, String estado) {
+    public Turno(String idTurno, String nombre) {
         this.idTurno = idTurno;
         this.nombre = nombre;
-        this.estado = estado;
     }
-    public Turno(String idTurno, String nombre, String horaInicio, String horaFin, String diaSemana, String estado) {
+    public Turno(String idTurno, String nombre, String estado) {
        this.idTurno = idTurno;
        this.nombre = nombre;
-       this.horaInicio = horaInicio;
-       this.horaFin = horaFin;
-       this.diaSemana = diaSemana;
        this.estado = estado;
     }
    
@@ -47,27 +40,6 @@ public class Turno  implements java.io.Serializable {
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public String getHoraInicio() {
-        return this.horaInicio;
-    }
-    
-    public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
-    }
-    public String getHoraFin() {
-        return this.horaFin;
-    }
-    
-    public void setHoraFin(String horaFin) {
-        this.horaFin = horaFin;
-    }
-    public String getDiaSemana() {
-        return this.diaSemana;
-    }
-    
-    public void setDiaSemana(String diaSemana) {
-        this.diaSemana = diaSemana;
     }
     public String getEstado() {
         return this.estado;

@@ -7,25 +7,23 @@ package pro.modelo.dao.impl;
 
 import java.sql.Connection;
 import java.sql.Statement;
-import pro.modelo.dao.alumnoDao;
-import pro.modelo.entidad.Alumno;
-import pro.modelo.entidad.Persona;
+import pro.modelo.dao.docenteDao;
 import pro.modelo.util.ConexionOracle;
 
 /**
  *
  * @author WIEXME
  */
-public class alumnoDaoImpl implements alumnoDao{
+public class docenteDaoImpl implements docenteDao{
     public Connection conecta(){
         return ConexionOracle.conectar();
     }
 
     @Override
-    public boolean inscribirAlumno(String id_persona, String codigo) {
+    public boolean inscribirDocente(String id_persona, String id_usuario, String ocupacion) {
         Statement st = null;
             boolean flat = false;
-            String query = "INSERT INTO alumno VALUES ('"+id_persona+"','"+codigo+"')";
+            String query = "INSERT INTO docente VALUES ('"+id_persona+"','"+id_usuario+"','"+ocupacion+"')";
        try {
             st = conecta().createStatement();
             st.executeUpdate(query);
@@ -43,7 +41,5 @@ public class alumnoDaoImpl implements alumnoDao{
         }
         return flat;
     }
-
-
     
 }

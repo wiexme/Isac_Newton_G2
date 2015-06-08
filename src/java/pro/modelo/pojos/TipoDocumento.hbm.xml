@@ -1,15 +1,14 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/05/2015 11:18:59 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 12:41:41 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pro.modelo.entidad.TipoDocumento" table="TIPO_DOCUMENTO" schema="ACADEMIA" optimistic-lock="version">
-        <id name="idTipodocumento" type="string">
-            <column name="ID_TIPODOCUMENTO" length="50" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="NOMBRE" length="70" />
-        </property>
-    </class>
+  <class name="pro.modelo.entidad.TipoDocumento" optimistic-lock="version" schema="ACADEMIA" table="TIPO_DOCUMENTO">
+    <id name="idTipodocumento" type="string">
+      <column length="50" name="ID_TIPODOCUMENTO"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="70" name="NOMBRE"/>
+    </property>
+  </class>
 </hibernate-mapping>

@@ -1,27 +1,17 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 24/05/2015 11:18:59 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07/06/2015 12:41:41 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="pro.modelo.entidad.Turno" table="TURNO" schema="ACADEMIA" optimistic-lock="version">
-        <id name="idTurno" type="string">
-            <column name="ID_TURNO" length="50" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="NOMBRE" length="50" not-null="true" />
-        </property>
-        <property name="horaInicio" type="string">
-            <column name="HORA_INICIO" length="30" />
-        </property>
-        <property name="horaFin" type="string">
-            <column name="HORA_FIN" length="30" />
-        </property>
-        <property name="diaSemana" type="string">
-            <column name="DIA_SEMANA" length="50" />
-        </property>
-        <property name="estado" type="string">
-            <column name="ESTADO" length="30" not-null="true" />
-        </property>
-    </class>
+  <class name="pro.modelo.entidad.Turno" optimistic-lock="version" schema="ACADEMIA" table="TURNO">
+    <id name="idTurno" type="string">
+      <column length="50" name="ID_TURNO"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="50" name="NOMBRE" not-null="true"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="30" name="ESTADO"/>
+    </property>
+  </class>
 </hibernate-mapping>
