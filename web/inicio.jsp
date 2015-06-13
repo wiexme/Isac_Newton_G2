@@ -3,7 +3,7 @@
   <div class="container">
     <header>
       <div class="container cabecera2">
-            <font face="Arial" size="5">BIENVENIDOS AL SISTEMA</font>
+          <h1><label>BIENVENIDOS AL SISTEMA</label></h1>
       </div>
     </header>
   </div>

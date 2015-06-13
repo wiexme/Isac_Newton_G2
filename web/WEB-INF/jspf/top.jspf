@@ -62,13 +62,14 @@
         </ul>
         </li>
         <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Movimiento
+         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes
          <span class="caret"></span></a>
          <ul class="dropdown-menu" role="menu">
-                <li><a href="informe_alumno.jsp">Reporte Alumno</a></li>
-                <li><a href="lista_tipoDocumento.jsp">Lista Tipo Documento</a></li>
-           	<li><a href="#">Asistencias</a></li>
-                <li><a href="#">Informe de Pagos</a></li>
+                <li><a href="lista_campana.jsp">Campañas</a></li>
+                <li><a href="lista_tipoDocumento.jsp">Tipo Documento</a></li>
+           	<li><a href="lista_aula.jsp">Aula</a></li>
+                <li><a href="lista_turno.jsp">Turno</a></li>
+                <li><a href="lista_curso.jsp">Curso</a></li>
           </ul>
         </li>
         <li><a href="cerrarUsuario">

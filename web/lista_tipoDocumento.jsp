@@ -24,6 +24,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3 col-md-3"></div>
         <div class="col-xs-12 col-sm-6 col-md-6 well">
+            <h1 class="text-center"><label>Lista de Tipo de Documentos</label></h1>
             <form action="lista_tipoDocumento.jsp">
                 <table class="table table-striped">
                     <thead>

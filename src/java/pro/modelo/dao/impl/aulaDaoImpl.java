@@ -11,18 +11,18 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import pro.modelo.dao.cursoDao;
-import pro.modelo.entidad.Curso;
+import pro.modelo.dao.aulaDao;
+import pro.modelo.entidad.Aula;
 import pro.modelo.util.HibernateUtil;
 
 /**
  *
- * @author GESSEÑY
+ * @author WIEXME
  */
-public class cursoDaoImpl implements cursoDao{
+public class aulaDaoImpl implements aulaDao{
 
     @Override
-    public boolean registrarCurso(Curso curso) {
+    public boolean registrarAula(Aula aula) {
         boolean flat = false;
         SessionFactory sf = null;
         Session session = null;
@@ -31,7 +31,7 @@ public class cursoDaoImpl implements cursoDao{
             sf = HibernateUtil.getSessionFactory();
             session =  sf.openSession();
             transaction = session.beginTransaction();
-            session.save(curso);
+            session.save(aula);
             transaction.commit();
             session.close();
             flat = true;
@@ -44,17 +44,16 @@ public class cursoDaoImpl implements cursoDao{
         return flat;
     }
 
-    
     @Override
-    public List<Curso> listarCurso() {
-        List<Curso> lista = null;
+    public List<Aula> listarAula() {
+        List<Aula> lista = null;
         SessionFactory sf = null;
         Session session = null;
         Criteria criteria = null;
         try {
             sf = HibernateUtil.getSessionFactory();
             session = sf.openSession();
-            criteria = session.createCriteria(Curso.class);
+            criteria = session.createCriteria(Aula.class);
             lista = criteria.list();
             session.close();
             
@@ -65,10 +64,9 @@ public class cursoDaoImpl implements cursoDao{
         return lista;
     }
 
-    
     @Override
-    public boolean actualizarCurso(Curso curso) {
-         boolean flat = false;
+    public boolean actualizarAula(Aula aula) {
+        boolean flat = false;
         SessionFactory sf = null;
         Session session = null;
         Transaction transaction = null;
@@ -77,10 +75,36 @@ public class cursoDaoImpl implements cursoDao{
             session =  sf.openSession();
             transaction = session.beginTransaction();
             
-            Curso cUpdate = (Curso)session.get(Curso.class, curso.getIdCurso());
-            cUpdate.setNombre(curso.getNombre());
-            cUpdate.setHoraPedagogica(curso.getHoraPedagogica());
-            session.update(cUpdate);
+            Aula aUpdate = (Aula)session.get(Aula.class, aula.getIdAula());
+            aUpdate.setNombre(aula.getNombre());
+            aUpdate.setDescripcion(aula.getDescripcion());
+            aUpdate.setEstado(aula.getEstado());
+            session.update(aUpdate);
+            transaction.commit();
+            session.close();
+            flat = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            transaction.rollback();
+            session.close();
+            flat = false;
+        }
+        return flat;
+   }
+
+    @Override
+    public boolean eliminarAula(String aula) {
+        boolean flat = false;
+        SessionFactory sf = null;
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            sf = HibernateUtil.getSessionFactory();
+            session =  sf.openSession();
+            transaction = session.beginTransaction();
+            
+            Aula aDelete = (Aula)session.get(Aula.class,aula);
+            session.delete(aDelete);
             transaction.commit();
             session.close();
             flat = true;
@@ -94,47 +118,21 @@ public class cursoDaoImpl implements cursoDao{
     }
 
     @Override
-    public boolean eliminarCurso(String curso) {
-         boolean flat = false;
-        SessionFactory sf = null;
-        Session session = null;
-        Transaction transaction = null;
-        try {
-            sf = HibernateUtil.getSessionFactory();
-            session =  sf.openSession();
-            transaction = session.beginTransaction();
-            
-            Curso cDelete = (Curso)session.get(Curso.class,curso);
-            session.delete(cDelete);
-            transaction.commit();
-            session.close();
-            flat = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            transaction.rollback();
-            session.close();
-            flat = false;
-        }
-        return flat;
-    }
-
-    
-    @Override
-    public Curso buscarCurso(String idCurso) {
-        Curso curso = null;
+    public Aula buscarAula(String idAula) {
+        Aula aula = null;
         SessionFactory sf = null;
         Session session = null;
         try {
             sf = HibernateUtil.getSessionFactory();
             session = sf.openSession();
-            Query query = session.createQuery("FROM Curso WHERE idCurso = '"+idCurso+"'");
-            curso = (Curso)query.uniqueResult();
+            Query query = session.createQuery("FROM Aula WHERE idAula = '"+idAula+"'");
+            aula = (Aula)query.uniqueResult();
             session.close();
         } catch (Exception e) {
             e.printStackTrace();
             session.close();
         }
-        return curso; 
+        return aula; 
     }
     
 }

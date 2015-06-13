@@ -12,6 +12,10 @@
         <servlet-name>validarUsuario</servlet-name>
         <servlet-class>validarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servlet_cargaCurso</servlet-name>
+        <servlet-class>servlet_cargaCurso</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>validar</servlet-name>
         <url-pattern>/validar</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>validarUsuario</servlet-name>
         <url-pattern>/validarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servlet_cargaCurso</servlet-name>
+        <url-pattern>/servlet_cargaCurso</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

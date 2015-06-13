@@ -11,18 +11,18 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import pro.modelo.dao.cursoDao;
-import pro.modelo.entidad.Curso;
+import pro.modelo.dao.turnoDao;
+import pro.modelo.entidad.Turno;
 import pro.modelo.util.HibernateUtil;
 
 /**
  *
- * @author GESSEÑY
+ * @author WIEXME
  */
-public class cursoDaoImpl implements cursoDao{
+public class turnoDaoImpl implements turnoDao{
 
     @Override
-    public boolean registrarCurso(Curso curso) {
+    public boolean registrarTurno(Turno turno) {
         boolean flat = false;
         SessionFactory sf = null;
         Session session = null;
@@ -31,7 +31,7 @@ public class cursoDaoImpl implements cursoDao{
             sf = HibernateUtil.getSessionFactory();
             session =  sf.openSession();
             transaction = session.beginTransaction();
-            session.save(curso);
+            session.save(turno);
             transaction.commit();
             session.close();
             flat = true;
@@ -44,17 +44,16 @@ public class cursoDaoImpl implements cursoDao{
         return flat;
     }
 
-    
     @Override
-    public List<Curso> listarCurso() {
-        List<Curso> lista = null;
+    public List<Turno> listarTurno() {
+        List<Turno> lista = null;
         SessionFactory sf = null;
         Session session = null;
         Criteria criteria = null;
         try {
             sf = HibernateUtil.getSessionFactory();
             session = sf.openSession();
-            criteria = session.createCriteria(Curso.class);
+            criteria = session.createCriteria(Turno.class);
             lista = criteria.list();
             session.close();
             
@@ -65,10 +64,9 @@ public class cursoDaoImpl implements cursoDao{
         return lista;
     }
 
-    
     @Override
-    public boolean actualizarCurso(Curso curso) {
-         boolean flat = false;
+    public boolean actualizarTurno(Turno turno) {
+        boolean flat = false;
         SessionFactory sf = null;
         Session session = null;
         Transaction transaction = null;
@@ -77,10 +75,10 @@ public class cursoDaoImpl implements cursoDao{
             session =  sf.openSession();
             transaction = session.beginTransaction();
             
-            Curso cUpdate = (Curso)session.get(Curso.class, curso.getIdCurso());
-            cUpdate.setNombre(curso.getNombre());
-            cUpdate.setHoraPedagogica(curso.getHoraPedagogica());
-            session.update(cUpdate);
+            Turno tUpdate = (Turno)session.get(Turno.class, turno.getIdTurno());
+            tUpdate.setNombre(turno.getNombre());
+            tUpdate.setEstado(turno.getEstado());
+            session.update(tUpdate);
             transaction.commit();
             session.close();
             flat = true;
@@ -94,8 +92,8 @@ public class cursoDaoImpl implements cursoDao{
     }
 
     @Override
-    public boolean eliminarCurso(String curso) {
-         boolean flat = false;
+    public boolean eliminarTurno(String turno) {
+        boolean flat = false;
         SessionFactory sf = null;
         Session session = null;
         Transaction transaction = null;
@@ -104,8 +102,8 @@ public class cursoDaoImpl implements cursoDao{
             session =  sf.openSession();
             transaction = session.beginTransaction();
             
-            Curso cDelete = (Curso)session.get(Curso.class,curso);
-            session.delete(cDelete);
+            Turno tDelete = (Turno)session.get(Turno.class,turno);
+            session.delete(tDelete);
             transaction.commit();
             session.close();
             flat = true;
@@ -118,23 +116,22 @@ public class cursoDaoImpl implements cursoDao{
         return flat;
     }
 
-    
     @Override
-    public Curso buscarCurso(String idCurso) {
-        Curso curso = null;
+    public Turno buscarTurno(String idTurno) {
+        Turno turno = null;
         SessionFactory sf = null;
         Session session = null;
         try {
             sf = HibernateUtil.getSessionFactory();
             session = sf.openSession();
-            Query query = session.createQuery("FROM Curso WHERE idCurso = '"+idCurso+"'");
-            curso = (Curso)query.uniqueResult();
+            Query query = session.createQuery("FROM Turno WHERE idTurno = '"+idTurno+"'");
+            turno = (Turno)query.uniqueResult();
             session.close();
         } catch (Exception e) {
             e.printStackTrace();
             session.close();
         }
-        return curso; 
+        return turno; 
     }
     
 }

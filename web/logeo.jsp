@@ -36,11 +36,6 @@
                 <label></label><br>
                 <input type="submit" class="btn btn-primary" value="Ingresar">
               </div><br>
-              <div class="checkbox">
-                <label>
-                    <input type="checkbox"> <font color="#FFFFFFF">No cerrar sesión</font>
-                </label>
-              </div>
             </form>
             </div>
         </div>

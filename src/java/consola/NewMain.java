@@ -9,8 +9,10 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import pro.modelo.dao.alumnoDao;
+import pro.modelo.dao.aulaDao;
 import pro.modelo.dao.cargaCursoDao;
 import pro.modelo.dao.impl.alumnoDaoImpl;
+import pro.modelo.dao.impl.aulaDaoImpl;
 import pro.modelo.dao.impl.cargaCursoDaoImpl;
 import pro.modelo.dao.impl.personaDaoImpl;
 import pro.modelo.dao.impl.tipoDocumentoDaoImpl;
@@ -19,6 +21,7 @@ import pro.modelo.dao.personaDao;
 import pro.modelo.dao.tipoDocumentoDao;
 import pro.modelo.dao.usuarioDao;
 import pro.modelo.entidad.Alumno;
+import pro.modelo.entidad.Aula;
 import pro.modelo.entidad.Docente;
 import pro.modelo.entidad.Persona;
 import pro.modelo.entidad.TipoDocumento;
@@ -42,7 +45,8 @@ public class NewMain {
 //       main.validar();
 //       main.verUsuario();
 //       main.agregarDocumento();
-       main.Update();
+//       main.Update();
+       main.agregarAula();
 
        
         Calendar calendario = Calendar.getInstance();
@@ -124,6 +128,22 @@ public class NewMain {
             
         } else {
             System.out.println("No se modifico el cliente");
+        }
+    }
+    
+    public void agregarAula(){
+        aulaDao dao = new aulaDaoImpl();
+        Aula aula = new Aula();
+        
+        aula.setIdAula("");
+        aula.setNombre("Maria");
+        aula.setDescripcion("");
+        aula.setEstado("1");
+        if (dao.registrarAula(aula)) {
+            System.out.println("Se agrego el Cliente...");
+            
+        } else {
+            System.out.println("No se agrego el Cliente...");
         }
     }
 }

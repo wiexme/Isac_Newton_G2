@@ -1,3 +1,5 @@
+<%@page import="pro.modelo.entidad.CargaMatricula"%>
+<%@page import="pro.modelo.dao.impl.cargaMatriculaDaoImpl"%>
 <%@page import="pro.modelo.dao.impl.personaDaoImpl"%>
 <%@page import="pro.modelo.entidad.Persona"%>
 <%@page import="pro.modelo.dao.personaDao"%>
@@ -52,6 +54,7 @@
         if(!codMatricula.equals("")){
           //alumno.setCodigoAlumno(codigoAlumno);
           if(daom.inscribirMatricula(idPersona, idCampana, codMatricula, idUsuario)){
+              new cargaMatriculaDaoImpl().inscribirCargaMatricula(new CargaMatricula(idCampana, idAlumno, idPersona));
               response.sendRedirect("inicio.jsp");
           }else{
                mensaje = "No se pudo registrar";
