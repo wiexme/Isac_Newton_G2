@@ -68,6 +68,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 well">
             <h1 class="text-center"><strong>MATRÍCULA</strong></h1>
             <form action="matricula.jsp">
+                <input type="hidden" name="codMatricula" class="form-control" placeholder="Codigo Matrícula" value="<%=matricula.getCodMatricula()%>">
                 <input type="hidden" name="idPersona" value="<%=idPersona%>" size="10">
                 <input type="hidden" name="buscarMatricula" value="<%=buscarMatricula%>" size="10">
                 <input type="hidden" name="opcion" value="Registrar" size="10">
@@ -113,11 +114,6 @@
                             </td>
                             <td></td>
                           </tr>
-                         <tr>
-                            <td><label class="col-sm-12 control-label">Codigo Matrícula</label></td>
-                            <td><div class="col-sm-15"><input type="text" name="codMatricula" class="form-control" placeholder="Codigo Matrícula" value="<%=codMatricula%>"></div></td>
-                            <td></td>
-                         </tr>
                          <tr>
                             <td colspan="3" align="center"><input type="submit" class="btn btn-primary" value="Guardar"></td>
                          </tr>

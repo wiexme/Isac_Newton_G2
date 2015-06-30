@@ -6,15 +6,19 @@
     </servlet>
     <servlet>
         <servlet-name>cerrarUsuario</servlet-name>
-        <servlet-class>cerrarUsuario</servlet-class>
+        <servlet-class>pro.controlador.cerrarUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>validarUsuario</servlet-name>
-        <servlet-class>validarUsuario</servlet-class>
+        <servlet-class>pro.controlador.validarUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>servlet_cargaCurso</servlet-name>
-        <servlet-class>servlet_cargaCurso</servlet-class>
+        <servlet-class>pro.controlador.servlet_cargaCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>servlet_asistencia</servlet-name>
+        <servlet-class>servlet_asistencia</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>validar</servlet-name>
@@ -32,9 +36,16 @@
         <servlet-name>servlet_cargaCurso</servlet-name>
         <url-pattern>/servlet_cargaCurso</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servlet_asistencia</servlet-name>
+        <url-pattern>/servlet_asistencia</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>logeo.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

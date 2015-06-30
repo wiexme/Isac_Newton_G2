@@ -14,5 +14,5 @@ import pro.modelo.entidad.Alumno;
  */
 public interface alumnoDao {
     public boolean inscribirAlumno(String id_persona, String codigo);
-//    public List<Alumno> lista(String idevento);
+    public List<Alumno> listarAlumno();
 }

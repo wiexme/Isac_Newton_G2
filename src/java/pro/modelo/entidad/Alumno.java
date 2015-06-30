@@ -12,6 +12,12 @@ package pro.modelo.entidad;
 public class Alumno {
     private String idAlumno;
     private String codigoAlumno;
+    private String nombre;
+    private String apellidoPat;
+    private String apellidoMat;
+    private String numDocumento;
+    private String direccion;
+    
 
     public Alumno() {
     }
@@ -30,6 +36,46 @@ public class Alumno {
 
     public void setCodigoAlumno(String codigoAlumno) {
         this.codigoAlumno = codigoAlumno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidoPat() {
+        return apellidoPat;
+    }
+
+    public void setApellidoPat(String apellidoPat) {
+        this.apellidoPat = apellidoPat;
+    }
+
+    public String getApellidoMat() {
+        return apellidoMat;
+    }
+
+    public void setApellidoMat(String apellidoMat) {
+        this.apellidoMat = apellidoMat;
+    }
+
+    public String getNumDocumento() {
+        return numDocumento;
+    }
+
+    public void setNumDocumento(String numDocumento) {
+        this.numDocumento = numDocumento;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     

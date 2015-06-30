@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -55,17 +56,26 @@ public class personaDaoImpl implements personaDao{
        Statement st = null;
        ResultSet rs = null;
        String query = "SELECT * FROM persona WHERE num_documento = '"+numdoc+"'";
-       Persona persona =null;
+       Persona persona = new Persona();
         try {
             st = conecta().createStatement();
             rs = st.executeQuery(query);
             while (rs.next()) {                
-                persona = new Persona();
+                
                 persona.setIdPersona(rs.getString("id_persona"));
                 persona.setNombre(rs.getString("nombre"));
                 persona.setApellidoPat(rs.getString("apellido_pat"));
                 persona.setApellidoMat(rs.getString("apellido_mat"));
-                persona.setGenero(rs.getString("genero"));               
+                persona.setGenero(rs.getString("genero"));  
+                persona.setFechaNacimiento(String.valueOf(rs.getDate("fecha_nacimiento")));
+                persona.setIdTipoDocumento(rs.getString("id_tipodocumento"));
+                persona.setNumDocumento(rs.getString("num_documento"));
+                persona.setDireccion(rs.getString("direccion"));
+                persona.setTelefono(rs.getString("telefono"));
+                persona.setCelular(rs.getString("celular"));
+                persona.setEstadoCivil(rs.getString("estado_civil"));
+                persona.setReligion(rs.getString("religion"));
+                persona.setIdUbigeo(rs.getString("id_ubigeo"));
             }
             conecta().close();
         } catch (Exception e) {
@@ -149,6 +159,125 @@ public class personaDaoImpl implements personaDao{
             }
         }
        return lista;
+    }
+
+    @Override
+    public boolean actualizarPersona(Persona persona) {
+       Statement st = null;
+       String query = "BEGIN modificarPersona('"+persona.getIdPersona()+"','"+persona.getNombre()+"',"
+               + "'"+persona.getApellidoPat()+"','"+persona.getApellidoMat()+"','"+persona.getGenero()+"',"
+               + "'"+persona.getFechaNacimiento()+"','"+persona.getIdTipoDocumento()+"','"+persona.getNumDocumento()+"',"
+               + "'"+persona.getDireccion()+"','"+persona.getTelefono()+"','"+persona.getCelular()+"',"
+               + "'"+persona.getEstadoCivil()+"','"+persona.getReligion()+"','"+persona.getIdUbigeo()+"'); END;";
+       System.out.println("query455"+query);
+        try {
+            st = conecta().createStatement();
+            st.executeQuery(query);
+            conecta().close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+            }
+        }
+       return true;
+    }
+
+    @Override
+    public TipoDocumento editarTipoDocumento(String idTipoDocumento) {
+       TipoDocumento td = new TipoDocumento();
+       Statement st = null;
+       ResultSet rs = null;
+       String query = "select id_tipodocumento, nombre from tipo_documento where id_tipodocumento = '"+idTipoDocumento+"'";
+        
+        try {
+            st = conecta().createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {                
+               td.setIdTipodocumento(rs.getString("id_tipodocumento"));
+               td.setNombre(rs.getString("nombre"));
+               
+            }
+            conecta().close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+            }
+        }
+       return td;
+    }
+
+    @Override
+    public Ubigeo editarUbigeo(String idUbigeo) {
+       Ubigeo ubigeo = new Ubigeo();
+       Statement st = null;
+       ResultSet rs = null;
+       String query = "select id_ubigeo, nombre from ubigeo where id_ubigeo= '"+idUbigeo+"'";
+        
+        try {
+            st = conecta().createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {                
+               ubigeo.setIdUbigeo(rs.getString("id_ubigeo"));
+               ubigeo.setNombre(rs.getString("nombre"));
+               
+            }
+            conecta().close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+            }
+        }
+       return ubigeo;
+    }
+
+    @Override
+    public List<Persona> listarPersona() {
+        List<Persona> lista = new ArrayList<Persona>();
+        Persona persona = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "select p.id_persona, p.nombre, p.apellido_pat, p.apellido_mat, decode(p.genero,'F','Femenino','M','Masculino','No definido') as genero, " +
+                        "p.fecha_nacimiento, td.nombre as tipodocumento, p.num_documento, p.direccion, NVL(p.telefono,'Sin Asignar') as telefono, NVL(p.celular, 'Sin Asignar') as celular, " +
+                        "decode(p.estado_civil, 'S', 'Soltero', 'C','Casado', 'D', 'Divorciado','No definido') as estado_civil, " +
+                        "NVL(p.religion, 'Sin Asignar') as religion, u.nombre as ubigeos " +
+                        "from persona p, tipo_documento td, ubigeo u where p.id_tipodocumento = td.id_tipodocumento and p.id_ubigeo = u.id_ubigeo";
+        System.out.println("sas"+query);
+        try {
+            st = conecta().createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                persona = new Persona();
+                persona.setIdPersona(rs.getString("id_persona"));
+                persona.setNombre(rs.getString("nombre"));
+                persona.setApellidoPat(rs.getString("apellido_pat"));
+                persona.setApellidoMat(rs.getString("apellido_mat"));
+                persona.setGenero(rs.getString("genero"));  
+                persona.setFechaNacimiento(String.valueOf(rs.getDate("fecha_nacimiento")));
+                persona.setNombreTipoDoc(rs.getString("tipodocumento"));
+                persona.setNumDocumento(rs.getString("num_documento"));
+                persona.setDireccion(rs.getString("direccion"));
+                persona.setTelefono(rs.getString("telefono"));
+                persona.setCelular(rs.getString("celular"));
+                persona.setEstadoCivil(rs.getString("estado_civil"));
+                persona.setReligion(rs.getString("religion"));
+                persona.setNombreUbigeo(rs.getString("ubigeos"));
+                lista.add(persona);
+            }
+            conecta().close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+            }
+        }
+        return lista;
     }
     
 }

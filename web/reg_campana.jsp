@@ -1,3 +1,4 @@
+<%@page import="java.sql.Date"%>
 <%@page import="pro.modelo.entidad.Campana"%>
 <%@page import="pro.modelo.dao.campanaDao"%>
 <%@page import="pro.modelo.dao.impl.campanaDaoImpl"%>
@@ -8,12 +9,14 @@
     String idCampana = request.getParameter("idCampana"); idCampana=idCampana==null?"":idCampana;
     String nombre = request.getParameter("nombre"); nombre=nombre==null?"":nombre;
     String semestre = request.getParameter("semestre"); semestre=semestre==null?"":semestre;
-    //String fechaInicio = request.getParameter("fechaInicio"); fechaInicio=fechaInicio==null?"":fechaInicio;
-   // String fechaFin = request.getParameter("fechaFin"); fechaFin=fechaFin==null?"":fechaFin;
+    String fechaInicio = request.getParameter("fechaInicio"); fechaInicio=fechaInicio==null?"":fechaInicio;
+    String fechaFin = request.getParameter("fechaFin"); fechaFin=fechaFin==null?"":fechaFin;
     String estado = request.getParameter("estado"); estado=estado==null?"":estado;
     String opcion=request.getParameter("opcion"); opcion=opcion==null?"Guardar":opcion;
     String mensaje = "";
     String titulo = "";
+    
+    
     
     if(opcion.equals("Guardar")||opcion.equals("Actualizando")){
         titulo = "Registro de Campañas";
@@ -22,9 +25,9 @@
                 campana.setIdCampana("");
                 campana.setNombre(nombre);
                 campana.setSemestre(semestre);
-            // campana.setFechaInicio(fechaInicio);
-               // campana.setFechaFin(fechaFin);
-                campana.setEstado(estado);
+                campana.setFechaInicio(Date.valueOf(fechaInicio));
+                campana.setFechaFin(Date.valueOf(fechaFin));
+                campana.setEstado(estado);  
                 if(daoc.registrarAula(campana)){
                     response.sendRedirect("lista_campana.jsp");
                 }else{
@@ -35,6 +38,8 @@
                 campana.setIdCampana(idCampana);
                 campana.setNombre(nombre);
                 campana.setSemestre(semestre);
+                campana.setFechaInicio(Date.valueOf(fechaInicio));
+                campana.setFechaFin(Date.valueOf(fechaFin));
                 campana.setEstado(estado);
                 if(daoc.actualizarCampana(campana)){
                     response.sendRedirect("lista_campana.jsp");
@@ -51,6 +56,8 @@
                         idCampana = campana.getIdCampana();
                         nombre = campana.getNombre();
                         semestre = campana.getSemestre();
+                        fechaInicio = String.valueOf(campana.getFechaInicio());
+                        fechaFin = String.valueOf(campana.getFechaFin());
                         estado = campana.getEstado();
                         opcion="Actualizando";
             }
@@ -72,6 +79,14 @@
                         <tr>
                             <td><label class="col-sm-12 control-label">Semestre</label></td>
                             <td><div class="col-md-12"><input type="text" name="semestre" class="form-control" placeholder="Semestre" value="<%=semestre%>"></div></td>
+                        </tr>
+                        <tr>
+                            <td><label class="col-sm-12 control-label">fechaInicio</label></td>
+                            <td><div class="col-md-12"><input type="date" name="fechaInicio" class="form-control" placeholder="fechaInicio" value="<%=fechaInicio%>"></div></td>
+                        </tr>
+                         <tr>
+                            <td><label class="col-sm-12 control-label">fechaFin</label></td>
+                            <td><div class="col-md-12"><input type="date" name="fechaFin" class="form-control" placeholder="fechaInicio" value="<%=fechaFin%>"></div></td>
                         </tr>
                         <%if(opcion.equals("Actualizando")){%>
                         <tr>

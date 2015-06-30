@@ -30,6 +30,7 @@
     String ocupacion = request.getParameter("ocupacion"); ocupacion=ocupacion==null?"":ocupacion;
     String opcion = request.getParameter("opcion"); opcion=opcion==null?"":opcion;
     String mensaje = "";
+    out.println("Usuario: "+idUsuario);
 
     
      if(!buscarDocente.equals("")){
@@ -96,7 +97,7 @@
                         </tr>
                         <tr>
                             <td><lebel class="col-sm-12 control-label"><strong>Ocupación</strong></lebel></td>
-<td><div class="col-sm-15"><input type="text" name="ocupacion" class="form-control" placeholder="Ocupación" value="<%=ocupacion%>" autofocus></div></td>
+                            <td><div class="col-sm-15"><input type="text" name="ocupacion" class="form-control" placeholder="Ocupación" value="<%=ocupacion%>" autofocus></div></td>
                             <td></td>
                         </tr>
                         <tr>

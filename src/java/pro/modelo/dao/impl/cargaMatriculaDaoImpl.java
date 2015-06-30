@@ -25,7 +25,6 @@ public class cargaMatriculaDaoImpl implements cargaMatriculaDao{
         Statement st = null;
         boolean flat = false;
         String query = "BEGIN cargaAlumno('"+cargaMatricula.getIdCampana()+"','"+cargaMatricula.getIdAlumno()+"'); END;";
-        System.out.println("BEGIN cargaAlumno('"+cargaMatricula.getIdCampana()+"','"+cargaMatricula.getIdAlumno()+"'); END;");
        try {
             st = conecta().createStatement();
             st.executeUpdate(query);

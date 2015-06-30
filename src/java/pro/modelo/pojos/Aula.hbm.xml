@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 07/06/2015 12:41:41 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated 17/06/2015 05:32:44 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
   <class name="pro.modelo.entidad.Aula" optimistic-lock="version" schema="ACADEMIA" table="AULA">
     <id name="idAula" type="string">
@@ -11,7 +11,7 @@
       <column length="60" name="NOMBRE" not-null="true"/>
     </property>
     <property name="descripcion" type="string">
-      <column length="100" name="DESCRIPCION"/>
+      <column length="300" name="DESCRIPCION"/>
     </property>
     <property name="estado" type="string">
       <column length="30" name="ESTADO"/>

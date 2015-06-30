@@ -1,5 +1,5 @@
 package pro.modelo.entidad;
-// Generated 07/06/2015 12:41:39 AM by Hibernate Tools 4.3.1
+// Generated 17/06/2015 05:32:42 PM by Hibernate Tools 4.3.1
 
 
 

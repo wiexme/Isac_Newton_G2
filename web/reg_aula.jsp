@@ -67,8 +67,8 @@
                             <td><div class="col-md-12"><input type="text" name="nombre" class="form-control" placeholder="Nombre del Aula" autofocus value="<%=nombre%>"></div></td>   
                         </tr>
                         <tr>
-                            <td><label class="col-sm-12 control-label">Descripción</label></td>
-                            <td><div class="col-md-12"><input type="text" name="descripcion" class="form-control" placeholder="Descripción" value="<%=descripcion%>"></div></td>
+                            <td><label class="col-sm-12 control-label">Descripción</label></td>    
+                            <td><textarea class="form-control" name="descripcion" value="<%=descripcion%>"><%=descripcion%></textarea></td>
                         </tr>
                         <%if(opcion.equals("Actualizando")){%>
                         <tr>

@@ -29,7 +29,7 @@
             <form action="lista_turno.jsp">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
+                        <tr class="info">
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Estado</th>

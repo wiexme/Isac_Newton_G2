@@ -11,8 +11,6 @@
     alumnoDao daoa = new alumnoDaoImpl();
     Persona persona = new Persona();
     Alumno alumno = new Alumno();
-
-    
     String buscarAlumno = request.getParameter("buscarAlumno"); buscarAlumno=buscarAlumno==null?"":buscarAlumno;
     String idPersona = request.getParameter("idPersona"); idPersona=idPersona==null?"":idPersona;
     String nombre = request.getParameter("nombre"); nombre=nombre==null?"":nombre;
@@ -52,6 +50,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 well">
             <h1 class="text-center"><label>INSCRIBIR ALUMNO</label></h1>
             <form action="inscripcionalumno.jsp">
+                 <input type="hidden" name="codigoAlumno" class="form-control" placeholder="Codigo Alumno" value="<%=alumno.getCodigoAlumno()%>">
                 <input type="hidden" name="idPersona" value="<%=idPersona%>" size="10">
                 <input type="hidden" name="buscarAlumno" value="<%=buscarAlumno%>" size="10">
                 <input type="hidden" name="opcion" value="Registrar" size="10">
@@ -85,11 +84,8 @@
                             <td></td>
                         </tr>
                         
-                        <tr>
-                            <td><lebel class="col-sm-12 control-label"><strong>Codigo Alumno</strong></lebel></td>
-                            <td><div class="col-sm-15"><input type="text" name="codigoAlumno" class="form-control" placeholder="Codigo Alumno" value=""></div></td>
-                            <td></td>
-                        </tr>
+                    
+                           
                         <tr>
                             <td colspan="3" align="center"><input type="submit" class="btn btn-primary" value="Guardar"></td>
                         </tr>

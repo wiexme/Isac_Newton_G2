@@ -19,4 +19,9 @@ public interface personaDao {
     public Persona buscarPersona(String numdoc);
     public boolean registrarPersona(Persona persona);
     public List<Ubigeo> listarUbigeo();
+    public boolean actualizarPersona(Persona persona);
+    public TipoDocumento editarTipoDocumento(String idTipoDocumento);
+    public Ubigeo editarUbigeo(String idUbigeo);
+    public List<Persona> listarPersona();
+    
 }

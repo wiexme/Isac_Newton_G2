@@ -46,13 +46,13 @@ public class NewMain {
 //       main.verUsuario();
 //       main.agregarDocumento();
 //       main.Update();
-       main.agregarAula();
+//       main.agregarAula();
 
        
         Calendar calendario = Calendar.getInstance();
         Calendar cal = new GregorianCalendar();
         System.out.println(date());
-        System.out.println(date().subSequence(0, 4)+""+date().substring(5, 7)+""+date().substring(8, 10)+""+calendario.get(Calendar.HOUR_OF_DAY)+""+calendario.get(Calendar.MINUTE)+""+calendario.get(Calendar.SECOND)+""+calendario.get(Calendar.MILLISECOND));
+        System.out.println(date().subSequence(0, 4)+""+date().substring(5, 7)+""+date().substring(8, 10)+""+calendario.get(Calendar.HOUR_OF_DAY)+""+calendario.get(Calendar.MINUTE));
     }
     
     public void listarubigeo(){

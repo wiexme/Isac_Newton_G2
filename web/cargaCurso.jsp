@@ -13,8 +13,7 @@ String idAula = request.getParameter("idAula"); idAula=idAula==null?"":idAula;
 String idDocente = request.getParameter("idDocente"); idDocente=idDocente==null?"":idDocente;
 %>
 <div class="container-fluid">
-    <div class="row">
-        
+    <div class="row">   
     <div class="col-xs-12 col-sm-1 col-md-1"></div>
     <div class="col-xs-12 col-sm-10 col-md-10 well">
         <h1 class="text-center"><label>CURSOS ACADEMICOS</label></h1>
@@ -49,7 +48,7 @@ String idDocente = request.getParameter("idDocente"); idDocente=idDocente==null?
                 <td class="col-md-6">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <input required type="checkbox" name="idCurso<%=x_count%>" value="<%=curso.getIdCurso()%>">
+                            <input type="checkbox" name="idCurso<%=x_count%>" value="<%=curso.getIdCurso()%>">
                         </span>
                         <input type="text" name="idCurso" class="form-control" value="<%=curso.getNombre()%>">
                     </div>

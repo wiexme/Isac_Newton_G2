@@ -1,3 +1,4 @@
+<%@page import="pro.modelo.entidad.Usuario"%>
 <%@page import="pro.modelo.dao.impl.usuarioDaoImpl"%>
 <%@page import="pro.modelo.dao.usuarioDao"%>
 <%@page import="pro.modelo.entidad.Persona"%>
@@ -8,17 +9,40 @@
     personaDao daop = new personaDaoImpl();
     usuarioDao daou = new usuarioDaoImpl();
     Persona persona = new Persona();
+    Usuario usuario = new Usuario();
     String idPersona = request.getParameter("idPersona"); idPersona=idPersona==null?"":idPersona;
+    String buscarLogin = request.getParameter("buscarLogin"); buscarLogin=buscarLogin==null?"":buscarLogin;
     String nombre = request.getParameter("nombre"); nombre=nombre==null?"":nombre;
     String apellidoPat = request.getParameter("apellidoPat"); apellidoPat=apellidoPat==null?"":apellidoPat;
     String apellidoMat = request.getParameter("apellidoMat"); apellidoMat=apellidoMat==null?"":apellidoMat;
     String genero = request.getParameter("genero"); genero=genero==null?"":genero;
     String login = request.getParameter("login"); login=login==null?"":login;
     String password = request.getParameter("password"); password=password==null?"":password;
+    String estado = request.getParameter("estado"); estado=estado==null?"":estado;
     String buscarUusuario = request.getParameter("buscarUusuario"); buscarUusuario=buscarUusuario==null?"":buscarUusuario;
     String opcion = request.getParameter("opcion"); opcion=opcion==null?"":opcion;
     String mensaje = "";
- 
+    
+    if(opcion.equals("actualizar")){
+    if(!buscarLogin.equals("")){
+                usuario = daou.buscarUsuario(buscarLogin);
+                if(usuario !=null){
+                    login = usuario.getLoggin();
+                    password = usuario.getPassword();
+                    opcion = "actualizando";
+                }else{   
+                }
+     }
+    }
+    if(opcion.equals("actualizando")){
+        
+          usuario.setIdUsuario(idPersona);
+          usuario.setLoggin(login);
+          usuario.setPassword(buscarUusuario);
+          usuario.setEstado(estado);
+         daou.actualizarUsuario(usuario);
+    }
+    
     if(!buscarUusuario.equals("")){
                 persona = daop.buscarPersona(buscarUusuario);
                 if(persona !=null){
@@ -31,13 +55,13 @@
                 }
      }
     
-    if(opcion.equals("inscribir")){    
+    if(opcion.equals("Guardar")){    
       if(!login.equals("") && !password.equals("")){
-          //alumno.setCodigoAlumno(codigoAlumno);
           if(daou.inscribirUsuario(idPersona, login, password)){
               response.sendRedirect("inicio.jsp");
           }else{
                mensaje = "No se pudo registrar";
+              
           }
         } 
     }
@@ -50,7 +74,7 @@
              <form action="inscripcionUsuario.jsp">
                  <input type="hidden" name="idPersona" value="<%=idPersona%>" size="10">
                  <input type="hidden" name="buscarUusuario" value="<%=buscarUusuario%>" size="10">
-                 <input type="hidden" name="opcion" value="inscribir" size="10">
+                 <input type="hidden" name="opcion" value="Guardar" size="10">
                  <table class="table table-condensed">
                      <tbody>
                          <tr>
@@ -90,8 +114,20 @@
                             <td><div class="col-sm-15"><input type="password" name="password" class="form-control" placeholder="Contraseña" value="<%=buscarUusuario%>"></div></td>
                             <td></td>
                         </tr>
+                         <%if(opcion.equals("Actualizando")){%>
+                         <tr>
+                            <td><label class="col-sm-12 control-label">Estado</label></td>
+                            <td><label class="radio-inline">
+                                <input type="radio" name="estado" value="1"<%if(estado.equals("1")){%> checked<%}%>>Activo
+                                </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="estado" value="0"<%if(estado.equals("0")){%> checked<%}%>>Inactivo
+                                </label>
+                            </td>
+                        </tr>
+                        <%}%>
                         <tr>
-                            <td colspan="3" align="center"><input type="submit" class="btn btn-primary" value="Guardar"></td>
+                            <td colspan="3" align="center"><input type="submit" class="btn btn-primary" value="<%=opcion%>"></td>
                         </tr>
                         <%
                                 if(!mensaje.equals("")){

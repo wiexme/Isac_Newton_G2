@@ -3,8 +3,8 @@
 <hibernate-reverse-engineering>
   <schema-selection match-schema="ACADEMIA"/>
   <table-filter match-name="AULA"/>
-  <table-filter match-name="TIPO_DOCUMENTO"/>
   <table-filter match-name="CURSO"/>
-  <table-filter match-name="CAMPANA"/>
   <table-filter match-name="TURNO"/>
+  <table-filter match-name="TIPO_DOCUMENTO"/>
+  <table-filter match-name="CAMPANA"/>
 </hibernate-reverse-engineering>

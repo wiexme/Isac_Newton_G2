@@ -16,6 +16,7 @@ import org.hibernate.SessionFactory;
 import pro.modelo.dao.matriculaDao;
 import pro.modelo.entidad.Alumno;
 import pro.modelo.entidad.Campana;
+import pro.modelo.entidad.Matricula;
 import pro.modelo.entidad.Persona;
 import pro.modelo.entidad.TipoDocumento;
 import pro.modelo.util.ConexionOracle;
@@ -53,7 +54,7 @@ public class matriculaDaoImpl implements matriculaDao{
     public boolean inscribirMatricula(String id_alumno, String id_campana, String cod_matricula, String id_usuario) {
         Statement st = null;
         boolean flat = false;
-        String query = "INSERT INTO matricula VALUES ('"+id_alumno+"','"+id_campana+"', sysdate, '"+cod_matricula+"', '"+id_usuario+"')";
+        String query = "INSERT INTO matricula VALUES ('"+id_alumno+"','"+id_campana+"', sysdate, '', '"+id_usuario+"')";
        try {
             st = conecta().createStatement();
             st.executeUpdate(query);
@@ -70,6 +71,43 @@ public class matriculaDaoImpl implements matriculaDao{
             }
         }
         return flat;
+    }
+
+    @Override
+    public List<Matricula> listarMatricula(String idMatricula) {
+        List<Matricula> lista = new ArrayList<Matricula>();
+        Matricula matricula = null;
+        Statement st = null;
+        ResultSet rs = null;
+        String query = "select p.nombre, p.apellido_pat, p.apellido_mat, a.CODIGO_ALUMNO, m.COD_MATRICULA, to_char(m.fecha, 'yyyy/mm/dd HH:mm:ss am') as fecha, u.login, c.nombre as nombrecampana, c.SEMESTRE " +
+                        "from persona p, alumno a, matricula m, usuario u, campana c " +
+                        "where p.id_persona = a.id_alumno and a.id_alumno = m.id_alumno " +
+                        "and m.id_campana = c.id_campana and u.id_usuario = m.id_usuario and c.id_campana = '"+idMatricula+"'";
+        try {
+            st = conecta().createStatement();
+            rs = st.executeQuery(query);
+            while (rs.next()) {
+                matricula = new Matricula();
+                matricula.setNombre(rs.getString("nombre"));
+                matricula.setApellidoPat(rs.getString("apellido_pat"));
+                matricula.setApellidoMat(rs.getString("apellido_mat"));
+                matricula.setCodAlumno(rs.getString("CODIGO_ALUMNO"));
+                matricula.setCodMatricula(rs.getString("COD_MATRICULA"));
+                matricula.setFecha(rs.getString("fecha"));
+                matricula.setLogin(rs.getString("login"));
+                matricula.setNombreCampana(rs.getString("nombrecampana"));
+                matricula.setSemestre(rs.getString("SEMESTRE"));
+                lista.add(matricula);
+            }
+            conecta().close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                conecta().close();
+            } catch (Exception ex) {
+            }
+        }
+        return lista;
     }
     
 }

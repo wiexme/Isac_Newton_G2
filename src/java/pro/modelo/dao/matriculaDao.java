@@ -8,6 +8,7 @@ package pro.modelo.dao;
 import java.util.List;
 import pro.modelo.entidad.Alumno;
 import pro.modelo.entidad.Campana;
+import pro.modelo.entidad.Matricula;
 import pro.modelo.entidad.TipoDocumento;
 
 /**
@@ -17,4 +18,5 @@ import pro.modelo.entidad.TipoDocumento;
 public interface matriculaDao {
     public List<Campana> listarCampana();
     public boolean inscribirMatricula (String id_alumno, String id_campana, String cod_matricula, String id_usuario);
+    public List<Matricula> listarMatricula(String idMatricula);
 }

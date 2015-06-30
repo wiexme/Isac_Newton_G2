@@ -15,6 +15,12 @@ public class Docente {
     private String nombre;
     private String apellido_pat;
     private String apellido_mat;
+    private String numDocumento;
+    private String direccion;
+    private String nombreCurso;
+    private String nombreCampana;
+    private String semestre;
+    private String nombreAula;
 
     public Docente() {
     }
@@ -57,6 +63,54 @@ public class Docente {
 
     public void setApellido_mat(String apellido_mat) {
         this.apellido_mat = apellido_mat;
+    }
+
+    public String getNumDocumento() {
+        return numDocumento;
+    }
+
+    public void setNumDocumento(String numDocumento) {
+        this.numDocumento = numDocumento;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+
+    public void setNombreCurso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
+
+    public String getNombreCampana() {
+        return nombreCampana;
+    }
+
+    public void setNombreCampana(String nombreCampana) {
+        this.nombreCampana = nombreCampana;
+    }
+
+    public String getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(String semestre) {
+        this.semestre = semestre;
+    }
+
+    public String getNombreAula() {
+        return nombreAula;
+    }
+
+    public void setNombreAula(String nombreAula) {
+        this.nombreAula = nombreAula;
     }
     
     

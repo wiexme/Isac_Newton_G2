@@ -28,7 +28,7 @@
             <form action="lista_campana.jsp">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
+                        <tr class="info">
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Semestre</th>

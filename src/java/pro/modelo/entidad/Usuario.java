@@ -17,6 +17,7 @@ public class Usuario {
     private String nombre;
     private String apellidoPat;
     private String apellidoMat;
+    private String numDocumento;
 
     public Usuario() {
     }
@@ -75,6 +76,14 @@ public class Usuario {
 
     public void setApellidoMat(String apellidoMat) {
         this.apellidoMat = apellidoMat;
+    }
+
+    public String getNumDocumento() {
+        return numDocumento;
+    }
+
+    public void setNumDocumento(String numDocumento) {
+        this.numDocumento = numDocumento;
     }
 
     

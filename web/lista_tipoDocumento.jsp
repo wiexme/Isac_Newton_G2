@@ -28,7 +28,7 @@
             <form action="lista_tipoDocumento.jsp">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
+                        <tr class="info">
                             <th>#</th>
                             <th>Nombre</th>
                             <th colspan="3">Acciones</th>

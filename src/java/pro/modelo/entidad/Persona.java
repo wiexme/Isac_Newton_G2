@@ -10,20 +10,22 @@ package pro.modelo.entidad;
  * @author WIEXME
  */
 public class Persona {
-    private String idPersona;
-    private String nombre;
-    private String apellidoPat;
-    private String apellidoMat;
-    private String genero;
-    private String fechaNacimiento;
-    private String idTipoDocumento;
-    private String numDocumento;
-    private String direccion;
-    private String telefono;
-    private String celular;
-    private String estadoCivil;
-    private String religion;
-    private String idUbigeo;
+    private String idPersona="";
+    private String nombre="";
+    private String apellidoPat="";
+    private String apellidoMat="";
+    private String genero="";
+    private String fechaNacimiento="";
+    private String idTipoDocumento="";
+    private String numDocumento="";
+    private String direccion="";
+    private String telefono="";
+    private String celular="";
+    private String estadoCivil="";
+    private String religion="";
+    private String idUbigeo="";
+    private String nombreTipoDoc = "";
+    private String nombreUbigeo = "";
 
     public Persona() {
     }
@@ -138,6 +140,22 @@ public class Persona {
 
     public void setIdUbigeo(String idUbigeo) {
         this.idUbigeo = idUbigeo;
+    }
+
+    public String getNombreTipoDoc() {
+        return nombreTipoDoc;
+    }
+
+    public void setNombreTipoDoc(String nombreTipoDoc) {
+        this.nombreTipoDoc = nombreTipoDoc;
+    }
+
+    public String getNombreUbigeo() {
+        return nombreUbigeo;
+    }
+
+    public void setNombreUbigeo(String nombreUbigeo) {
+        this.nombreUbigeo = nombreUbigeo;
     }
     
     

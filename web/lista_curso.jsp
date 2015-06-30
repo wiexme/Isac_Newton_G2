@@ -27,7 +27,7 @@
             <form action="lista_curso.jsp">
                 <table class="table table-striped">
                     <thead>
-                        <tr>
+                        <tr class="info">
                             <th>#</th>
                             <th>Nombre</th>
                             <th>Hora Pedagogica</th>
